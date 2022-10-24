@@ -4,13 +4,14 @@
     Основная идея — разделение неотсортированного массива на две части и сортировка
     отдельных половинок по рекурсивному принципу.
 
-    Исходный массив заздадим при помощи генерации, количесво лементов
-    запрашиваем у пользователя
+    Исходный массив заздадим при помощи генерации, количесво элементов
+    запрашиваем у пользователя.
  */
 
 package task01;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,10 +33,19 @@ public class Task01 {
         }
 
 
+        mergeSort();
+
     }
 
-        // алгоритм сортировки
-    public static int[] mergeSort(int[] array){
+    // алгоритм сортировки
+    public static void mergeSort(ArrayList<int> array){
+        int partArraySize = arraySize / 2;
+        sortPart(array, 0, partArraySize);
+        sortPart(array, partArraySize+1, array.length-1);
+
+    }
+
+    public static void sortPart(ArrayList<int> arrayList, int start, int end){
 
     }
 
