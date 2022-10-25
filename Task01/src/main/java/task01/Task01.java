@@ -11,9 +11,9 @@
 package task01;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Task01 {
     // максимальная граница генерируемых значений
@@ -32,21 +32,38 @@ public class Task01 {
             array.add(random.nextInt(MAX_NUM));
         }
 
-
-        mergeSort();
-
+        Logger logger = Logger.getAnonymousLogger();
+        logger.info(array.toString());
+        logger.info(mergeSort(array).toString());
     }
 
     // алгоритм сортировки
-    public static void mergeSort(ArrayList<int> array){
-        int partArraySize = arraySize / 2;
-        sortPart(array, 0, partArraySize);
-        sortPart(array, partArraySize+1, array.length-1);
+    public static ArrayList<Integer> mergeSort(ArrayList<Integer> array){
+        int partArraySize = arraySize / 2 - 1;
+        array = sortPart(array, 0, partArraySize);
+        array = sortPart(array, partArraySize+1, array.size()-1);
 
+        return array;
     }
 
-    public static void sortPart(ArrayList<int> arrayList, int start, int end){
+    public static ArrayList<Integer> sortPart(ArrayList<Integer> arrayList, int start, int end){
+        Logger logger = Logger.getAnonymousLogger();
+        int sizePart = end - start;
 
+        if(sizePart > 1){
+            // вызвать разделение
+            int halfSize = (end - start + 1) / 2;
+            arrayList = sortPart(arrayList, start, start + halfSize);
+            arrayList = sortPart(arrayList, start + halfSize+1, end);
+        }else if (sizePart == 1) {
+            if (arrayList.get(start) > arrayList.get(end)) {
+                int tmp = arrayList.get(start);
+                arrayList.set(start, arrayList.get(end));
+                arrayList.set(end, tmp);
+                logger.info(arrayList.toString());
+            }
+        }
+        return arrayList;
     }
 
     // очистка терминала
