@@ -28,7 +28,7 @@
 
 **Скриншоты** (выполнение, проверка в Excel)
 
-!["Скрин 1"](/ScreenShots/task_03_02.png "Screen 1")
-!["Скрин 2"](/ScreenShots/task_03_01.png "Screen 2")
+!["Скрин 1"](/ScreenShots/task_03_01.png "Screen 1")
+!["Скрин 2"](/ScreenShots/task_03_02.png "Screen 2")
 
 ---
